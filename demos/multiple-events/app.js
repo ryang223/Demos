@@ -10,12 +10,18 @@ for(let btn of removeButtons){
 }
 
 
-form.addEventListener('submit',function(e){
+form.addEventListener('submit', function(e){
     e.preventDefault();
     console.log(input.value)
     const newFriend = document.createElement('li');
+    const removeBtn = document.createElement('button');
+    removeBtn.innerText = 'UnFriend';
+    removeBtn.addEventListener('click', function(e){
+        e.target.parentElement.remove();
+    });
     newFriend.innerText = input.value;
-    input.value = '';
+    newFriend.appendChild(removeBtn);
     friendList.appendChild(newFriend);
-})
+    input.value = '';
+});
 
